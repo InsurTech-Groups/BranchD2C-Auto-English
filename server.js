@@ -4,7 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-app.listen(cors());
+app.use(cors());
 
 app.use(bodyParser.json());
 
@@ -15,15 +15,14 @@ app.get('/', (req, res) => {
 app.post('/branch', async (req, res) => {
 
   try {
-
     const formData = req.body;
 
     console.log('backend formData', formData);
 
-    const response = await axios.post('', formData, { //TODO: Add API URL
+    const response = await axios.post('https://link-generator-v2.api.ourbranch.com', formData, { //TODO: Add API URL
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': '' //TODO: Add API KEY
+        'x-api-key': 'bI0nf695ilIZBijR0vAOfqdKvxB5gd5yYtJdvpwY2NtyjkASKKluFfkagl3xc8RA',
       }
     });
     res.send(response.data);

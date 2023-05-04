@@ -28,7 +28,7 @@ export const postDataToBranch = async (navigate) => {
       },
     },
     leadId: "",
-    policyTypeCode: "HA"
+    policyTypeCode: "A"
   }
 
   
@@ -43,11 +43,11 @@ export const postDataToBranch = async (navigate) => {
       console.log(res);
 
       userData.available = res.data.available;
-      userData.homePrice = res.data.homePriceHint;
       userData.quoteURL = res.data.quoteUrl;
 
       toast.success('Your Form Has Been Submitted!')
-      console.log(userData)
+      console.log(userData);
+      console.log(res)
       navigate('/thank-you')
     }
     

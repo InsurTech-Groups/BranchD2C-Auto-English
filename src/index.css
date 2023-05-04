@@ -1,0 +1,17 @@
+@import url('./styles/font.css');
+
+
+body {
+    margin: 0;
+    font-family: ThiccBoiRegular, 'sans-serif';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+
+/* hide appereance in input fields for numbers */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

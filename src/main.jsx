@@ -5,7 +5,8 @@ import './index.css';
 import './tailwind.css';
 import App from './App';
 
-const root = document.getElementById('root');
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement)
 
 root.render(
   <Router>

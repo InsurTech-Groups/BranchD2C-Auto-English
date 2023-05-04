@@ -153,7 +153,7 @@ function ZipCode() {
   
       landingPageData(id, zipCodeValue, cityValue, stateValue, ipValue, url)
       
-      navigate('/address');
+      navigate('/liscense-plate');
     }
 
   }

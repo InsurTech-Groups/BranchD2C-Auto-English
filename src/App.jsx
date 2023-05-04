@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 
 import LandingPage from './pages/LandingPage';
 
+import LiscensePlate from './questions/LiscensePlate';
 import Address from './questions/Address';
 import DOB from './questions/DOB';
 import Gender from './questions/Gender';
@@ -59,6 +60,7 @@ navigator.app
       <Routes>
         <Route path='/' element={<LandingPage />} />
        
+        <Route path='/liscense-plate' element={<LiscensePlate />} />
         
         <Route path='/address' element={<Address />} />
         <Route path='dob' element={<DOB />} />
