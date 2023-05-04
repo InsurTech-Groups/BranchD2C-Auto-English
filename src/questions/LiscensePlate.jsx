@@ -52,25 +52,34 @@ const LiscensePlate = () => {
     let state = selectedState;
     
     
-    
-
-    //make a fetch rquest to url
-    fetch(`${url}key=${apiKey}&plate=${plateNumber}&state=${state}&format=json`, {
-      method: 'GET',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  }
+    //make axios request followinf the fetch below
+    axios.get(`${url}key=${apiKey}&plate=${plateNumber}&state=${state}&format=json`)
+    .then(response => {
+      console.log(response.data);
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(err => {
-        console.error(err);
-      }
-      )
+    .catch(err => {
+      console.error(err);
+    }
+    )
+
+
+  //   //make a fetch rquest to url
+  //   fetch(`${url}key=${apiKey}&plate=${plateNumber}&state=${state}&format=json`, {
+  //     method: 'GET',
+  // headers: {
+  //   'Content-Type': 'application/json',
+  //   'Accept': 'application/json',
+  //   'Access-Control-Allow-Origin': '*'
+  // }
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(data);
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     }
+  //     )
   }
 
   return (
