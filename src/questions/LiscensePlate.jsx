@@ -46,7 +46,7 @@ const LiscensePlate = () => {
 
     let plate = lisPlate;
 
-    let url = 'http://api.carsxe.com/platedecoder?'
+    let url = 'https://api.carsxe.com/platedecoder?'
     let apiKey = import.meta.env.VITE_PLATE_DECODER;
     let plateNumber = plate;
     let state = selectedState;
