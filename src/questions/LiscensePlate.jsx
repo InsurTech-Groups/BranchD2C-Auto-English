@@ -9,7 +9,6 @@ import { userData } from "../data/userData";
 import { states } from '../apis/stateList';
 import axios from "axios";
 
-
 const LiscensePlate = () => {
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -25,63 +24,29 @@ const LiscensePlate = () => {
     }
   }, []);
 
-  
-
   const nextStep = (e) => {
     e.preventDefault();
     if (lisPlate !== "") {
-     
-
-      handlePlateChange()
-    
-      //navigate("/address");
+      fetchLicensePlateData(lisPlate, selectedState);
+    } else {
+      toast.error('Please enter a valid Plate Number');
+      return;
     }
-    else {
-      toast.error('Please enter a valide Plate Number');
-      return
-    }
-   
   };
 
-  const handlePlateChange = () => {
-
-    let plate = lisPlate;
-
-    let url = 'https://api.carsxe.com/platedecoder?'
-    let apiKey = import.meta.env.VITE_PLATE_DECODER;
-    let plateNumber = plate;
-    let state = selectedState;
-    
-    
-    //make axios request followinf the fetch below
-    axios.get(`${url}key=${apiKey}&plate=${plateNumber}&state=${state}&format=json`)
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(err => {
-      console.error(err);
+  async function fetchLicensePlateData(plate, state) {
+    try {
+      const response = await fetch(`http://localhost:3000/liscense?plate=${plate}&state=${state}`);
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
     }
-    )
-
-
-  //   //make a fetch rquest to url
-  //   fetch(`${url}key=${apiKey}&plate=${plateNumber}&state=${state}&format=json`, {
-  //     method: 'GET',
-  // headers: {
-  //   'Content-Type': 'application/json',
-  //   'Accept': 'application/json',
-  //   'Access-Control-Allow-Origin': '*'
-  // }
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data);
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     }
-  //     )
   }
+
 
   return (
     <div className="bg-dark-purple pb-10">
